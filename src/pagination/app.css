@@ -1,0 +1,17 @@
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+}
+ul{
+  position: relative;
+  padding: 12px;
+  list-style: none;
+}
+li{
+  margin-bottom: 10px;
+}
+input{
+  padding: 12px;
+  width: 50%;
+  font-size: 19px;
+}

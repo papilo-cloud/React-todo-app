@@ -1,15 +1,20 @@
+import { useState } from "react"
 
-
-const Task = ({task, onDelete}) => {
+const Task = ({id, name, onDelete,toggleComplete,completed}) => {
+   console.log(completed)
    
     return (
         <div className='task'>
-            <label className='label'>
-                <h4 className="styl">{task.name}</h4>
-                <input type="checkbox" />
+            <label className='label stl'>
+                <h4 className="styl">{name}</h4>
+                <input type="checkbox" 
+                checked={completed}
+                style={{background:'red'}}
+                onClick={() => toggleComplete(id)}/>
                 <span className='checkmark'></span>
             </label>     
-            <span className="delete-btn" onClick={()=> onDelete(task.id) }>A</span>           
+            <span className="delete-btn" 
+            onClick={()=> onDelete(id) }>A</span>           
         </div>
     )
 }

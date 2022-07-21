@@ -1,8 +1,9 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import AddForms from './components/AddForms'
 import Button from './components/Button'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import './index.css'
 
 const Apps = () => {
 
@@ -12,34 +13,34 @@ const Apps = () => {
             {
                 id: 1,
                 name: 'Pay for rent',
-                reminder: false,
+                completed: true,
             },
             {
                 id: 2,
                 name: 'Daily meetings with team',
-                reminder: false,
+                completed: false,
             },
             {
                 id: 3,
                 name: 'Check emails',
-                reminder: false,
+                completed: false,
             },
             {
                 id: 4,
                 name: 'Lunch with Emma',
-                reminder: false,
+                completed: false,
             },
             {
                 id: 5,
                 name: 'Meditations',
-                reminder: false,
+                completed: false,
             }
         ]
     )
 
     const addTasks = (txt) =>{
-        const rand = Math.random() * 1000
-        const newTask = {id:rand, name:txt}
+        const rand = Math.random() * 100000
+        const newTask = {id:rand, name:txt, completed:false}
         setTasks([...tasks, newTask])
     }
 
@@ -48,7 +49,30 @@ const Apps = () => {
          console.log(del);
          setTasks(del)
     }
-    const p = '+'
+    const toggleComplete = (id) =>{
+        const toggle = tasks.map(task => {
+            if (id === task.id) {
+                return {...task, completed:!task.completed}
+            }
+            return task
+        });
+        setTasks(toggle)
+        console.log(toggle)
+    }
+    useEffect(() => {
+
+        const todo = JSON.parse(localStorage.getItem('task'))
+        if (todo) {
+            setTasks(todo)
+        }
+    }, [])
+    
+    useEffect(() => {
+        localStorage.setItem('task', JSON.stringify(tasks))
+    }, [tasks])
+
+    
+    const p = '+' 
     const y = 'new task'
     const onAdds = ()=>{
         setBtn(!btn)
@@ -60,14 +84,13 @@ const Apps = () => {
              curText={btn ? p : y}
              selectStyle={btn}/>
 
-            { btn ? <div className='app-data'>
+            { btn ?<>
                 <Header />
-                {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={onDelete}/>: 'Nothing to Show'}
-
-            </div> : 
-            <div className='app-form'>
-                <AddForms addTask ={addTasks} onAdd={() => setBtn(!btn)}/>
-            </div> }
+                {tasks.length > 0 ? <Tasks 
+                toggleComplete={toggleComplete}
+                tasks={tasks} onDelete={onDelete}/>: 'Nothing to Show'}</>: 
+                <AddForms 
+                addTask ={addTasks} onAdd={() => setBtn(!btn)}/> }
         </div>
     )
 }

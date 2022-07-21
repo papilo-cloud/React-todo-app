@@ -1,7 +1,19 @@
 import React, {Component,  useState } from 'react';
 import ReactDOM from 'react-dom';
+// import Apps from './Apps';
+// import App from './reactHooks/App'
+// import './index.css'
+import Reducer from './reactHooks/Reducer';
+// import Home from './reactHooks/Home';
+// import App from './expenseTracker/App';
+// import Home from './dojo_blog/Home';
+import Search from './dojo_blog/Search';
+// import App from './pagination/App';
+import TimersDashBoard from './compo1/TimersDashBoard';
 import Apps from './Apps';
-import './index.css'
+import Homes from './localStorage/Homes';
+
+
 
 const data = [
   {id: "todo-0", name: "Eat", completed: true},
@@ -13,8 +25,16 @@ const data = [
 
 
 ReactDOM.render(
-  <Apps tasks={data}/>,
-  document.querySelector('div')
+  // <Ap tasks={data}/>,
+  <Apps />,
+  // <Homes />,
+  // <Home />,
+  // <App />,
+  // <Home />,
+  // <App />,
+  // <Search />,
+  // <TimersDashBoard />,
+  document.getElementById('root')
 );
 
 

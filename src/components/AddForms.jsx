@@ -7,7 +7,7 @@ const AddForms = ({addTask, onAdd}) => {
         e.preventDefault()
         if (!text) {
             alert('type in something');
-            return
+            return 
         }
         console.log({text});
         addTask(text)
@@ -20,22 +20,28 @@ const AddForms = ({addTask, onAdd}) => {
 
 
     return (
-        <form className="add-form" onSubmit={handleSubmit}>
-            <div className='form-input'>
-                <button className="cancel">X</button>
+        
+        <div className='form-input'>
+            <button className="cancel" onClick={onAdd}>X</button>
+            <form className="add-form" onSubmit={handleSubmit}>
                 <input className="text"
-                type="text" 
-                placeholder="Enter new task"
-                id='textName' 
-                onChange={handleChange}
-                value={text} />
+                    type="text" 
+                    placeholder="Enter new task"
+                    id='textName' 
+                    onChange={handleChange}
+                    value={text} />
                 <div className="buttons">
-                <button className="date">Today</button>
-                <button
-                 type='submit' className="form-btn"><span></span></button>
-                 </div>
-            </div>
+                    <button className="date">Today</button>
+                    <button
+                        type='submit' 
+                        className="form-btn"><span></span>
+                    </button>
+                </div>
         </form>
+        <div className="menus">
+
+        </div>
+        </div>
     )
 }
 

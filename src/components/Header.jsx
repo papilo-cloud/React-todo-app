@@ -1,14 +1,15 @@
-
+import {BiMenuAltLeft, BiSearch} from 'react-icons/bi'
+import {BsBell} from 'react-icons/bs'
 
 
 const Header = () => {
     return (
         <header className="header">
             <div className="top-menu">
-                <button>|||</button>
+                <button><BiMenuAltLeft style={{fontSize:26}} /></button>
                 <ul>
-                    <li>sr</li>
-                    <li>al</li>
+                    <li><BiSearch /></li>
+                    <li><BsBell /></li>
                 </ul>
             </div>
             <h1>What's up Abdul </h1>

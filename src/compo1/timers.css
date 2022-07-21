@@ -1,0 +1,113 @@
+*{
+    box-sizing: border-box;
+}
+button{
+    cursor: pointer;
+}
+body{
+    padding: 0;
+    margin: 0;
+    background: #f5f5f5;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+.grid{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    /* margin: 0 auto; */
+    /* text-align: center; */
+}
+.column{
+    width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #0076ff;
+    display: flex;
+    flex-direction: column;
+}
+.form{
+    border: 1px solid #888;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+}
+.form input{
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+    margin: 9px 0;
+}
+
+.bottom{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.bottom button{
+    width: 50%;
+    font-size: 15px;
+    padding:8px;
+    outline: none;
+    border: none;
+}
+.bottom .blue{
+    color: #0076ff;
+    border:1px solid #0076ff;
+}
+.bottom .red{
+    color: #da4012;
+    border:1px solid #da4012;
+}
+.card{
+    position: relative;
+    border: 1px solid #888;
+    margin: 10px 0;
+    padding: 0 ;
+    border-radius: 6px;
+}
+.card .content{
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+.content .header h3{
+    margin: 0;
+    padding: 0;
+}
+.content .description{
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+.content .description h2{
+    margin: 0;
+}
+.content .extra{
+    position: relative;
+    width: 100%;
+    margin: 0;
+    align-items: center;
+}
+.content .extra span{
+    float: right;
+    margin-left: 10px;
+}
+.attached> button{
+    width: 100%;
+    padding: 8px;
+    color: #0f0;
+    border:1px solid #0f0;
+}
+.aligned{
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+}
+.aligned .icon{
+    outline: none;
+    border: 1ps solid #888;
+}
