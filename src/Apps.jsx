@@ -59,17 +59,17 @@ const Apps = () => {
         setTasks(toggle)
         console.log(toggle)
     }
-    useEffect(() => {
+    // useEffect(() => {
 
-        const todo = JSON.parse(localStorage.getItem('task'))
-        if (todo) {
-            setTasks(todo)
-        }
-    }, [])
+    //     const todo = JSON.parse(localStorage.getItem('task'))
+    //     if (todo) {
+    //         setTasks(todo)
+    //     }
+    // }, [])
     
-    useEffect(() => {
-        localStorage.setItem('task', JSON.stringify(tasks))
-    }, [tasks])
+    // useEffect(() => {
+    //     localStorage.setItem('task', JSON.stringify(tasks))
+    // }, [tasks])
 
     
     const p = '+' 

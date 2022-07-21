@@ -13,8 +13,11 @@ const Task = ({id, name, onDelete,toggleComplete,completed}) => {
                 onClick={() => toggleComplete(id)}/>
                 <span className='checkmark'></span>
             </label>     
-            <span className="delete-btn" 
-            onClick={()=> onDelete(id) }>A</span>           
+            <div className="task-btn">
+                <button className="delete-btn" 
+                onClick={()=> onDelete(id) }>A</button> 
+                <button className="edit">D</button> 
+            </div>         
         </div>
     )
 }

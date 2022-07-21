@@ -6,11 +6,11 @@ body, *{
 
 .app-container{
   font-family: sans-serif;
-  max-width: 100%;
+  max-width: 500px;
   min-height: 100vh;
   overflow: auto;
   padding: 0 ;
-  margin: 0;
+  margin: 0 auto;
   text-align: center;
 }
 .tasks{
@@ -26,10 +26,24 @@ body, *{
   justify-content: space-between;
   align-items: center;
 }
-.task .delete-btn{
+.task-btn{
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.task .task-btn button{
+  outline: none;
+  background-color: #fff;
+  border: none;
+  /* padding: 0; */
+  margin: 0;
+  /*  */
+}
+.task .task-btn .delete-btn{
   color: red;
   cursor: pointer;
-  background-color: inherit;
+  background-color: #fff;
+  margin-right: 6px;
 }
 h4{
   display: flex;
@@ -80,6 +94,7 @@ h4{
  .stl input:checked ~ .checkmark:after{
   display: block;
  }
+ /* .task */
  
   .stl .checkmark:after{
   top: 4px;
