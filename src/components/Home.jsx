@@ -5,22 +5,22 @@ import User from './User'
 
 
 const Home = () => {
-    const [first, setfirst] = useState(true)
-    const [users, setUsers] = useState('jide')
-    const [users2, setUsers2] = useState('jide')
+    const [first, setfirst] = useState(false)
+    const [users, setUsers] = useState('')
+    const [users2, setUsers2] = useState('')
 
-    const getUser = () =>{
-        console.log('Helo world')
-    }
+    // const getUser = () =>{
+    //     console.log('Helo world')
+    // }
     const handleLogin = (fName, lName) =>{
       setUsers(fName)
       setUsers2(lName)
   }
   return (
     <div className='home'>
-        <Apps getUser={getUser} users={users}/>
-        <Login handleLogin={handleLogin } />
-        <User fName={users} lName={users2} />
+        {users ?<Apps getUser={setfirst} first={first} users={users}/>:
+        <Login handleLogin={handleLogin } />}
+        <User fName={users} lName={users2} getUser={setfirst} first={first} />
     </div>
   )
 }

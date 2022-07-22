@@ -56,7 +56,7 @@ const Task = ({id, name,handleEdit,onDelete,toggleComplete,completed}) => {
    
     return (
         <>
-        {!editing ? renderEditing: renderView}
+        {editing ? renderEditing: renderView}
         </>
     )
 }

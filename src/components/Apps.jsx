@@ -5,7 +5,7 @@ import Header from './Header'
 import Tasks from './Tasks'
 import '../index.css'
 
-const Apps = ({getUser,users}) => {
+const Apps = ({getUser,users,first}) => {
 
     const [btn, setBtn] = useState(true)
     const [tasks, setTasks] = useState(
@@ -91,6 +91,7 @@ const Apps = ({getUser,users}) => {
     const onAdds = ()=>{
         setBtn(!btn)
     }
+    const length = tasks.length
 
     return (
         <div className='app-container'>
@@ -99,9 +100,8 @@ const Apps = ({getUser,users}) => {
              selectStyle={btn}/>
 
             { btn ?<>
-                <Header users={users} getUser={getUser}/>
+                <Header users={users} first={first} length={length} getUser={getUser}/>
                 {tasks.length > 0 ? <Tasks 
-                
                 toggleComplete={toggleComplete}
                 handleEdit ={handleEditTask}
                 tasks={tasks} onDelete={onDelete}/>: 'Nothing to Show'}</>: 
