@@ -1,5 +1,7 @@
+import {BsSave} from 'react-icons/bs'
 import { MdDelete} from 'react-icons/md'
 import { useState } from "react"
+import { BiUndo } from 'react-icons/bi'
 
 const Task = ({id, name,handleEdit,onDelete,toggleComplete,completed}) => {
 
@@ -22,9 +24,13 @@ const Task = ({id, name,handleEdit,onDelete,toggleComplete,completed}) => {
         </div>
         <div className="edit-btn">
             <button className="calcel-btn" 
-            type='button'
-            onClick={()=> setEditing(false) }>C</button> 
-            <button className="save" type="submit">S</button> 
+                type='button'
+                onClick={()=> setEditing(false) }>
+                <BiUndo />
+            </button> 
+            <button className="save" type="submit">
+                <BsSave />
+            </button> 
         </div>
         
    </form>
@@ -50,7 +56,7 @@ const Task = ({id, name,handleEdit,onDelete,toggleComplete,completed}) => {
    
     return (
         <>
-        {editing ? renderEditing: renderView}
+        {!editing ? renderEditing: renderView}
         </>
     )
 }

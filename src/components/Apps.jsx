@@ -2,11 +2,10 @@ import {useState, useEffect} from 'react'
 import AddForms from './AddForms'
 import Button from './Button'
 import Header from './Header'
-import Login from './Login'
 import Tasks from './Tasks'
 import '../index.css'
 
-const Apps = ({getUser}) => {
+const Apps = ({getUser,users}) => {
 
     const [btn, setBtn] = useState(true)
     const [tasks, setTasks] = useState(
@@ -38,7 +37,7 @@ const Apps = ({getUser}) => {
             }
         ]
     )
-    const [users, setUsers] = useState('jide')
+    
 
     const addTasks = (txt) =>{
         const rand = Math.random() * 100000
@@ -69,9 +68,7 @@ const Apps = ({getUser}) => {
         })
         setTasks(newTask)
     }
-    const handleLogin = (user) =>{
-        setUsers(user)
-    }
+    
     // useEffect(() => {
 
     //     const todo = JSON.parse(localStorage.getItem('task'))
@@ -97,7 +94,7 @@ const Apps = ({getUser}) => {
 
     return (
         <div className='app-container'>
-          { users?<> <Button onClick={onAdds}
+          <> <Button onClick={onAdds}
              curText={btn ? p : y}
              selectStyle={btn}/>
 
@@ -111,7 +108,7 @@ const Apps = ({getUser}) => {
                 <AddForms 
                 addTask ={addTasks} onAdd={() => setBtn(!btn)}/> }
                 </>:
-                <Login handleLogin={handleLogin } />}
+                
         </div>
     )
 }
