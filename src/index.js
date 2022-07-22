@@ -10,8 +10,9 @@ import Reducer from './reactHooks/Reducer';
 import Search from './dojo_blog/Search';
 // import App from './pagination/App';
 import TimersDashBoard from './compo1/TimersDashBoard';
-import Apps from './Apps';
+import Apps from './components/Apps';
 import Homes from './localStorage/Homes';
+import Home from './components/Home';
 
 
 
@@ -26,7 +27,8 @@ const data = [
 
 ReactDOM.render(
   // <Ap tasks={data}/>,
-  <Apps />,
+  // <Apps />,
+  <Home />,
   // <Homes />,
   // <Home />,
   // <App />,

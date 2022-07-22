@@ -13,10 +13,51 @@ body, *{
   margin: 0 auto;
   text-align: center;
 }
+.login-form{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+}
+.login-form form{
+  position: relative;
+  background-color: 173459;
+  width: 100%;
+  padding: 12px;
+}
+.login-form input{
+  border: none;
+  outline: none;
+  margin: 10px 0;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #2196f3;
+  border-radius: 8px;
+  color: #0066ff;
+}
+.login-form button{
+  outline: none;
+  border: 1px solid #2196f3;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0066ff;
+}
 .tasks{
   position: relative;
   padding: 30px;
 }
+.edit input{
+  border: 1px dashed ;
+  outline: none;
+  background-color: #fff;
+  padding: 4px;
+}
+.edit,
 .task{
   background-color: #fff;
   padding: 20px 12px;
@@ -25,31 +66,30 @@ body, *{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
+}
+.edit{
+  padding:16px 12px;
 }
 .task-btn{
   position: relative;
   margin: 0;
   padding: 0;
 }
-.task .task-btn button{
-  outline: none;
-  background-color: #fff;
-  border: none;
-  /* padding: 0; */
-  margin: 0;
-  /*  */
-}
+
 .task .task-btn .delete-btn{
+  border: none;
+  outline: none;
   color: red;
   cursor: pointer;
   background-color: #fff;
-  margin-right: 6px;
 }
-h4{
+.task p{
   display: flex;
+  align-items: center;
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
 }
 .styl{
   background-color: transparent;
@@ -94,14 +134,12 @@ h4{
  .stl input:checked ~ .checkmark:after{
   display: block;
  }
- /* .task */
  
   .stl .checkmark:after{
   top: 4px;
   left: 9px;
   width: 5px;
   height: 10px;
-  /*background-color: #fff;*/
   border: solid #fff;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
@@ -117,6 +155,10 @@ h4{
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+}
+.header h2{
+  text-align: left;
+  margin: 0;
 }
 .top-menu button{
   border: none;
@@ -134,22 +176,61 @@ h4{
   padding: 0;
   font-size: 26px;
 }
-.header h1{
-  margin: 0;
-  padding: 0;
-}
 .categories{
   position: relative;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 .categories .business, .personal{
   position: relative;
-  padding: 30px;
+  padding: 30px 10px;
   border-radius: 6px;
   background-color: #fff;
   text-align: center;
   align-items: center;
+  width: 50%;
+}
+.categories h4{
+  display: inline;
+}
+.categories .bus, .categories .per{
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background-color: #f0f0f0;
+  margin: 0;
+  margin-top: 10px;
+}
+.bus span, .per span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 100%;
+  background-color: tomato;
+}
+.bus span{
+  animation: bus .8s ease-in-out ;
+}
+.per span{
+  background-color: purple;
+  width: 60%;
+  animation: per .8s ease-in-out ;
+}
+@keyframes bus {
+  0%   {width:0; }
+  25%  {width:18.75%; }
+  50%  {width: 37.5%;}
+  75%  {width: 56.25%; }
+  100% {width:75%; }
+}
+@keyframes per {
+  0%   {width:0%; }
+  25%  {width:15%; }
+  50%  {width:30%;}
+  75%  {width:45%; }
+  100% {width:60%; }
 }
 .app-container .btn{
   position: fixed;
@@ -185,7 +266,6 @@ h4{
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: tomato;
 }
 .form-input .cancel{
   position: absolute;
@@ -241,18 +321,26 @@ h4{
   border: 1px solid #333;
  align-self: center;
 }
+.bus
 
 .add-form{
   position: relative;
   width: 100%;
-  background-color: tan;
   padding: 0 30px;
 }
 .add-form input{
   margin-bottom: 30px;
 }
 .menus{
+  position: relative;
   width: 100%;
-  height: 240px;
-  background-color: #0066ff;
+  padding: 0 4rem;
+}
+.menus > div{
+  position: relative;
+  bottom: 0;
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

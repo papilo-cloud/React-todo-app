@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { BsFlag, BsFolderPlus, BsMoonStars } from "react-icons/bs"
 
 const AddForms = ({addTask, onAdd}) => {
     const [text, setText] = useState('')
@@ -24,12 +25,14 @@ const AddForms = ({addTask, onAdd}) => {
         <div className='form-input'>
             <button className="cancel" onClick={onAdd}>X</button>
             <form className="add-form" onSubmit={handleSubmit}>
+                <label>
                 <input className="text"
                     type="text" 
                     placeholder="Enter new task"
                     id='textName' 
                     onChange={handleChange}
                     value={text} />
+                    </label>
                 <div className="buttons">
                     <button className="date">Today</button>
                     <button
@@ -37,9 +40,14 @@ const AddForms = ({addTask, onAdd}) => {
                         className="form-btn"><span></span>
                     </button>
                 </div>
+                
         </form>
         <div className="menus">
-
+            <div>
+                <BsFolderPlus className="plus"/>
+                <BsFlag />
+                <BsMoonStars />
+            </div>
         </div>
         </div>
     )

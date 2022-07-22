@@ -1,11 +1,12 @@
 import {useState, useEffect} from 'react'
-import AddForms from './components/AddForms'
-import Button from './components/Button'
-import Header from './components/Header'
-import Tasks from './components/Tasks'
-import './index.css'
+import AddForms from './AddForms'
+import Button from './Button'
+import Header from './Header'
+import Login from './Login'
+import Tasks from './Tasks'
+import '../index.css'
 
-const Apps = () => {
+const Apps = ({getUser}) => {
 
     const [btn, setBtn] = useState(true)
     const [tasks, setTasks] = useState(
@@ -37,6 +38,7 @@ const Apps = () => {
             }
         ]
     )
+    const [users, setUsers] = useState('jide')
 
     const addTasks = (txt) =>{
         const rand = Math.random() * 100000
@@ -57,7 +59,18 @@ const Apps = () => {
             return task
         });
         setTasks(toggle)
-        console.log(toggle)
+    }
+    const handleEditTask = (id, tsk) =>{
+        const newTask = tasks.map(task => {
+            if (id === task.id) {
+                return {...task, name:tsk}
+            }
+            return task
+        })
+        setTasks(newTask)
+    }
+    const handleLogin = (user) =>{
+        setUsers(user)
     }
     // useEffect(() => {
 
@@ -71,6 +84,10 @@ const Apps = () => {
     //     localStorage.setItem('task', JSON.stringify(tasks))
     // }, [tasks])
 
+    // const getUser = () =>{
+    //     console.log('Helo world')
+    // }
+
     
     const p = '+' 
     const y = 'new task'
@@ -80,17 +97,21 @@ const Apps = () => {
 
     return (
         <div className='app-container'>
-            <Button onClick={onAdds}
+          { users?<> <Button onClick={onAdds}
              curText={btn ? p : y}
              selectStyle={btn}/>
 
             { btn ?<>
-                <Header />
+                <Header users={users} getUser={getUser}/>
                 {tasks.length > 0 ? <Tasks 
+                
                 toggleComplete={toggleComplete}
+                handleEdit ={handleEditTask}
                 tasks={tasks} onDelete={onDelete}/>: 'Nothing to Show'}</>: 
                 <AddForms 
                 addTask ={addTasks} onAdd={() => setBtn(!btn)}/> }
+                </>:
+                <Login handleLogin={handleLogin } />}
         </div>
     )
 }
