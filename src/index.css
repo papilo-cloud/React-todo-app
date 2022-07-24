@@ -1,7 +1,11 @@
 body, *{
-  background-color: #f5f5f5;
+  background-color: hsl(202, 12%, 87%);
   box-sizing: border-box;
   font-family: 'Roboto Flex', sans-serif;
+}
+.colors{
+  color:hsl(206, 6%, 79%);
+  background-color: hsl(270, 20%, 96%);
 }
 .home{
   position: relative;
@@ -11,8 +15,8 @@ body, *{
 .users{
   position: fixed;
   margin: 0;
-  padding:4rem 3rem;
-  border-radius: 0 26px 26px 0;
+  padding:4rem 1rem;
+  border-radius: 0 40px 40px 0;
   top: 0;
   left: -100%;
   width: 80%;
@@ -22,7 +26,7 @@ body, *{
   flex-direction: column;
   justify-content: flex-start;
   transition: .4s;
-  /* align-items: flex-end; */
+  z-index: 10000;
 }
 .users .bs{
   background-color: transparent;
@@ -70,18 +74,20 @@ body, *{
   color: #f5f5f5;
   letter-spacing: 2px;
 }
-.users div ul{
-  position: relative;
-  margin: 0;
-  list-style: none;
-  padding: 0;
-  background-color: #0e2747;
-}
-.users ul li {
-  margin-bottom: 25px;
-  background-color: #0e2747;
-  color: #999;
+.users .data p{
+  background-color: transparent;
   letter-spacing: 2px;
+  color: #eee;
+}
+
+.filter-btn{
+  border: none;
+  outline: none;
+  background-color: inherit;
+  margin-bottom: 12px;
+  color: #eee;
+  letter-spacing: 2px;
+  font-size: 16px;
 }
 
 .app-container{
@@ -94,23 +100,31 @@ body, *{
   margin: 0 auto;
   text-align: center;
 }
-.login-form{
+.login-form {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  /* padding: 12px; */
+  background-color: #0e2747;
+}
+.login-form form{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0;
+  margin:auto 0;
+  width: 100%;
   padding: 2rem;
   min-height: 100vh;
 }
-.login-form form{
-  position: relative;
-  background-color: 173459;
+.login-form form label{
   width: 100%;
-  padding: 12px;
+  margin: 0;
+  padding: 0;
 }
-.login-form input{
+
+.login-form form input{
   border: none;
   outline: none;
   margin: 10px 0;
@@ -120,13 +134,14 @@ body, *{
   border-radius: 8px;
   color: #0066ff;
 }
-.task
+
 .login-form button{
   outline: none;
   border: 1px solid #2196f3;
   padding: 6px 12px;
   border-radius: 8px;
   cursor: pointer;
+  align-self: center;
   color: #0066ff;
 }
 .tasks{
@@ -136,23 +151,24 @@ body, *{
 .edit input{
   border: 1px dashed ;
   outline: none;
-  background-color: #fff;
+  background-color: #f9f9f9e7;
   padding: 4px;
 }
 .edit,
 .task{
   position: relative;
-  background-color: #fff;
+  background-color: #f9f9f9e7;
   padding: 20px 12px;
-  border-radius: 6px;
-  margin: 7px 0;
+  border-radius: 12px;
+  margin: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  color: #333;
 }
 .edit{
-  padding:16px 12px;
+  padding:16.5px 12px;
 }
 .edit-btn{
   position: relative;
@@ -171,14 +187,17 @@ body, *{
 .edit-btn button:hover{
   border: 1px dashed #2196f3;
 }
-
+.editbtn{
+  background-color: inherit;
+  font-size: 18px;
+}
 
 .task .task-btn .delete-btn{
   border: none;
   outline: none;
   color: red;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #f9f9f9e7;
 }
 .task p{
   display: flex;
@@ -209,11 +228,14 @@ body, *{
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #eee;
+  background-color: #fff;
   height: 25px;
   width: 25px;
   border-radius: 50%;
-  border: 2px solid #0066ff;
+  border: 2px solid #0066ff
+}
+.taskType{
+  border: 2px solid rgb(172, 18, 172)
 }
 .stl:checked .styl{
   text-decoration: line-through;
@@ -236,7 +258,7 @@ body, *{
   left: 9px;
   width: 5px;
   height: 10px;
-  border: solid #fff;
+  border:2px solid #fff;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
  }
@@ -285,9 +307,9 @@ body, *{
 }
 .categories .business, .personal{
   position: relative;
-  padding: 25px 10px;
-  border-radius: 6px;
-  background-color: #fff;
+  padding: 25px 10px 7px;
+  border-radius: 12px;
+  background-color: #f9f9f9e7;
   text-align: left;
   align-items: center;
   width: 50%;
@@ -305,9 +327,10 @@ body, *{
   position: relative;
   width: 100%;
   height: 3px;
-  background-color: #f0f0f0;
+  background-color: rgb(224, 221, 221);
   margin: 0;
   margin-top: 10px;
+  box-shadow: 1px 1px 3px 0px #a3a3a3;
 }
 .bus span, .per span{
   position: absolute;
@@ -315,13 +338,13 @@ body, *{
   left: 0;
   width: 75%;
   height: 100%;
-  background-color: tomato;
+  background-color: rgb(172, 18, 172);
 }
 .bus span{
   animation: bus .8s ease-in-out ;
 }
 .per span{
-  background-color: purple;
+  background-color: #196be6;
   width: 60%;
   animation: per .8s ease-in-out ;
 }
@@ -348,21 +371,21 @@ body, *{
   background-color: #0066ff;
   color: #fff;
   border-radius: 50%;
-  padding:6px 12px;
+  padding:14px 22px;
   font-size: 24px;
   cursor: pointer;
   z-index: 1000;
   box-shadow: 3px 4px 12px #2196f3;
 } 
 .app-container .btn-form{
-  padding: 10px 20px;
-  border-radius: 18px;
+  padding: 14px 22px;
+  border-radius: 25px;
   border: none;
   outline: none;
   background-color: #0066ff;
   color: #fff;
-  font-size: 14px;
-
+  font-size: 18px;
+  letter-spacing: 2px;
 } 
 
 .form-input{
@@ -374,33 +397,94 @@ body, *{
   width: 100%;
   height: 100vh;
 }
+
 .form-input .cancel{
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 50px;
+  right: 30px;
   border: none;
   outline: none;
   background-color: inherit;
-  padding: 10px;
+  padding: 14px 18px;
+  font-size: 20px;
+  border: 1.2px solid #999;
+  border-radius: 50%;
 }
 .form-input .cancel:hover{
   border: 1px dashed #eee;
 }
 .form-input .buttons{
+  display: flex;
+  justify-content: left;
   width: 100%;
-  text-align: left;
   padding-left: 10px;
   background-color: inherit;
 }
-.form-input .date{
-  padding: 10px 20px;
-  border-radius: 18px;
+
+.task-type{
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  margin-right: 20px;
+}
+.task-type input{
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+.task-type span{
+  display: block;
+  position: relative;
+  /* background-color: #0066ff; */
+  border: 2px solid #0066ff;
+  padding: 14px;
+  border-radius: 32px;
+  align-self: center;
+  color: #999;
+}
+
+
+.task-type input:checked ~ .type{
+  /* background-color: rgb(172, 18, 172); */
+  border: 2px solid rgb(172, 18, 172);
+  color: #999;
+}
+.type:after{
+  content:'';
+  position: absolute;
+  display: none;
+ }
+ .task-type input:checked ~ .type:after{
+  display: block;
+ }
+ 
+  .task-type .type:after{
+    top: 0;
+    left: 0;
+    color: #eee;
+ }
+.form-btn{
+  position: relative;
+  padding: 10px 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   border: none;
   outline: none;
+  background-color: #fff;
+  border: 1.2px solid #0066ff;
+}
+.form-btn span{
+  position: relative;
+  width: 15px;
+  height: 15px;
   background-color: #0066ff;
-  color: #fff;
-  font-size: 14px;
-  margin-right: 12px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid #999;
+  top: 2px;
 }
 .text{
   padding: 12px;
@@ -408,27 +492,10 @@ body, *{
   width: 100%;
   border: none;
   outline: none;
-  font-size: 24px;
+  font-size: 18px;
 }
-.form-btn{
-  padding: 10px;
-  /* border-radius: 50%; */
-  border: none;
-  outline: none;
-  background-color: #fff;
-  align-items: center;
-  text-align: center;
-}
-.form-btn span{
-  width: 15px;
-  height: 15px;
-  background-color: #0066ff;
-  display: inline-block;
-  border-radius: 50%;
-  border: 1px solid #333;
- align-self: center;
-}
-.bus
+
+.login-form
 
 .add-form{
   position: relative;
@@ -450,4 +517,31 @@ body, *{
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.info{
+  position: relative;
+  /* width: 100%; */
+  margin: 0 20px;
+  background-color: #0e2747;
+  color: #eee;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 14px #333;
+}
+.info p{
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: inherit;
+}
+.info ul{
+  position: relative;
+  background-color: inherit;
+  list-style: square;
+  text-align: left;
+}
+.info ul li{
+  background-color: inherit;
+  margin-bottom: 10px;
 }

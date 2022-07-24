@@ -18,7 +18,7 @@ const Login = ({handleLogin}) => {
             <input type="text" 
                 value={lName}
                 onChange={e => setLName(e.target.value)}/>
-            </label><br />
+            </label>
             <button type='submit' 
             style={{borderColor: fName && lName? '':'red' }}
             disabled={fName.length == 0 || lName.length == 0 } >

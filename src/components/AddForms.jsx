@@ -3,6 +3,7 @@ import { BsFlag, BsFolderPlus, BsMoonStars } from "react-icons/bs"
 
 const AddForms = ({addTask, onAdd}) => {
     const [text, setText] = useState('')
+    const [taskTypes, setTaskTypes] = useState(false)
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -11,14 +12,13 @@ const AddForms = ({addTask, onAdd}) => {
             return 
         }
         console.log({text});
-        addTask(text)
+        addTask(text, taskTypes)
         setText('')
     }
 
     const handleChange = (e)=>{
         setText(e.target.value);
     }
-
 
     return (
         
@@ -34,7 +34,12 @@ const AddForms = ({addTask, onAdd}) => {
                     value={text} />
                     </label>
                 <div className="buttons">
-                    <button className="date">Today</button>
+                    <label className="task-type">
+                    <input type="checkbox" 
+                        onClick={() => setTaskTypes(!taskTypes)}
+                    />
+                    <span className="type" >{taskTypes?'business': 'personal'}</span>
+                    </label>
                     <button
                         type='submit' 
                         className="form-btn"><span></span>

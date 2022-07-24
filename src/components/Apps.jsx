@@ -4,44 +4,17 @@ import Button from './Button'
 import Header from './Header'
 import Tasks from './Tasks'
 import '../index.css'
+import Information from './Information'
 
-const Apps = ({getUser,users,first}) => {
+const Apps = ({getUser,users,first, tasks, setTasks,FILTERS,filter}) => {
 
     const [btn, setBtn] = useState(true)
-    const [tasks, setTasks] = useState(
-        [
-            {
-                id: 1,
-                name: 'Pay for rent',
-                completed: true,
-            },
-            {
-                id: 2,
-                name: 'Daily meetings with team',
-                completed: false,
-            },
-            {
-                id: 3,
-                name: 'Check emails',
-                completed: false,
-            },
-            {
-                id: 4,
-                name: 'Lunch with Emma',
-                completed: false,
-            },
-            {
-                id: 5,
-                name: 'Meditations',
-                completed: false,
-            }
-        ]
-    )
+    
     
 
-    const addTasks = (txt) =>{
+    const addTasks = (txt,type) =>{
         const rand = Math.random() * 100000
-        const newTask = {id:rand, name:txt, completed:false}
+        const newTask = {id:rand, name:txt, completed:false, taskType:type}
         setTasks([...tasks, newTask])
     }
 
@@ -91,7 +64,7 @@ const Apps = ({getUser,users,first}) => {
     const onAdds = ()=>{
         setBtn(!btn)
     }
-    const length = tasks.length
+    // const length = tasks.filter(task => !task.taskType)
 
     return (
         <div className='app-container'>
@@ -100,13 +73,18 @@ const Apps = ({getUser,users,first}) => {
              selectStyle={btn}/>
 
             { btn ?<>
-                <Header users={users} first={first} length={length} getUser={getUser}/>
+                <Header users={users} 
+                first={first} tasks={tasks} getUser={getUser}/>
                 {tasks.length > 0 ? <Tasks 
+                FILTERS={FILTERS}
+                filter={filter}
                 toggleComplete={toggleComplete}
                 handleEdit ={handleEditTask}
-                tasks={tasks} onDelete={onDelete}/>: 'Nothing to Show'}</>: 
+                tasks={tasks} onDelete={onDelete}/>: <Information /> }</>: 
                 <AddForms 
-                addTask ={addTasks} onAdd={() => setBtn(!btn)}/> }
+                addTask ={addTasks} 
+                tasks={tasks}
+                onAdd={() => setBtn(!btn)}/> }
                 </>:
                 
         </div>

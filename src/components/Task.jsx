@@ -3,13 +3,13 @@ import { MdDelete} from 'react-icons/md'
 import { useState } from "react"
 import { BiUndo } from 'react-icons/bi'
 
-const Task = ({id, name,handleEdit,onDelete,toggleComplete,completed}) => {
+const Task = ({id, name,handleEdit,onDelete,toggleComplete,completed, taskType, FILTERS}) => {
 
     const [newTask, setNewTask] = useState(name)
     const [editing, setEditing] = useState(false)
 
     const handleSubmit = (e) =>{
-        e.preventDefault();
+        e.preventDefault(); 
         handleEdit(id,newTask)
         setEditing(false)
     }
@@ -26,10 +26,10 @@ const Task = ({id, name,handleEdit,onDelete,toggleComplete,completed}) => {
             <button className="calcel-btn" 
                 type='button'
                 onClick={()=> setEditing(false) }>
-                <BiUndo />
+                <BiUndo className='editbtn' />
             </button> 
             <button className="save" type="submit">
-                <BsSave />
+                <BsSave className='editbtn' />
             </button> 
         </div>
         
@@ -40,16 +40,15 @@ const Task = ({id, name,handleEdit,onDelete,toggleComplete,completed}) => {
        <p className="styl">{name}</p>
        <input type="checkbox" 
             checked={completed}
-            style={{background:'red'}}
             readOnly
             onClick={() => toggleComplete(id)}
         />
-       <span className='checkmark'></span>
+       <span className={taskType? 'checkmark taskType':'checkmark'}></span>
    </label>     
    <div className="task-btn">
        <button className="delete-btn" 
        onClick={()=> onDelete(id) }>
-            <MdDelete />
+            <MdDelete className='editbtn' />
         </button> 
    </div>         
 </div>

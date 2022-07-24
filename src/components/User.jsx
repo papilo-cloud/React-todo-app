@@ -1,12 +1,16 @@
 import React from 'react'
 import { BsCaretLeft } from 'react-icons/bs'
+import FilterButtons from './FilterButtons'
 import img from './images/papilo.jpg'
 
-const User = ({lName,fName,first,getUser}) => {
+const User = ({lName,fName,first,getUser,FILTERSITEM, setFilter}) => {
+  
+  
+
   return (
     <div className={first ? 'users open':'users'}>
-      <button className='butn'>
-        <BsCaretLeft onClick={() => getUser(!first)} className='bs'/>
+      <button className='butn' onClick={() => getUser(!first)}>
+        <BsCaretLeft className='bs'/>
       </button>
         <div className='img'>
           <img src={img} width={100} alt="user image" />
@@ -15,12 +19,8 @@ const User = ({lName,fName,first,getUser}) => {
           {fName} {lName}
         </h1>
         <div className="data">
-          <ul>
-            <li>template</li>
-            <li>categories</li>
-            <li>analytic</li>
-            <li>settings</li>
-          </ul>
+          <p>Filter By:</p>
+           {FILTERSITEM.map(item => <FilterButtons key={item} item={item} setFilter={setFilter} /> )}
         </div>
     </div>
   )

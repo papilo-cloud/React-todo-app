@@ -1,10 +1,10 @@
 import Task from "./Task"
 
 
-function Tasks({tasks, onDelete, toggleComplete,handleEdit }) {
+function Tasks({tasks, onDelete, toggleComplete,handleEdit,FILTERS,filter }) {
     return (
         <div className="tasks">
-            {tasks.map(task => <Task key={task.id}
+            {tasks.filter(FILTERS[filter]).map(task => <Task key={task.id}
              {...task} onDelete={onDelete}
              handleEdit={handleEdit}
              toggleComplete={toggleComplete}/>
@@ -14,3 +14,4 @@ function Tasks({tasks, onDelete, toggleComplete,handleEdit }) {
 }
 
 export default Tasks
+ 
